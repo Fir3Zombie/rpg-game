@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 60
+var speed = 45
 var player_chase = false
 var player = null
 
@@ -10,6 +10,7 @@ var can_take_damage = true
 
 func _physics_process(_delta):
 	deal_with_damage()
+	update_health()
 	
 	
 	if player_chase:
@@ -24,12 +25,13 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play("idle")
 
 func _on_detection_area_body_entered(body): 
+	
 	player = body
 	player_chase = true
 	
 
 
-func _on_detection_area_body_exited():
+func _on_detection_area_body_exited(_body):
 	player = null
 	player_chase = false
 	
@@ -60,3 +62,14 @@ func deal_with_damage():
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+
+func update_health():
+	
+	var healthbar = $healthbar
+	
+	healthbar.value = health 
+	
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true

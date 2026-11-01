@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://376jfbyveuyx"
-path="res://.godot/imported/movment(2).png-3ce9dd75e09e302cbdb4df7e49b77bba.ctex"
+uid="uid://tha4ojypraqc"
+path="res://.godot/imported/movment(5)(1).png-5140d8179a4e4ed77936059d9a84805c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/movment(2).png"
-dest_files=["res://.godot/imported/movment(2).png-3ce9dd75e09e302cbdb4df7e49b77bba.ctex"]
+source_file="res://art/enemy's/movment(5)(1).png"
+dest_files=["res://.godot/imported/movment(5)(1).png-5140d8179a4e4ed77936059d9a84805c.ctex"]
 
 [params]
 

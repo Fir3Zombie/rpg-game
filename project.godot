@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="rpg game"
-run/main_scene="uid://bsdonr2cv7avn"
+run/main_scene="uid://dnhr0sj17wbok"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://art/icon.svg"
 
@@ -23,7 +23,6 @@ global="*uid://dsetcspva6ohi"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/stretch/scale=4.0
 
 [input]
 

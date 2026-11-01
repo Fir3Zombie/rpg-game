@@ -2,14 +2,15 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 160
+var health = global.player_health
 var player_alive = true
+
 
 var attack_ip = false
 
 
 # current speed. (may change later)
-const speed = 100
+const speed = 150
 
 var current_dir = "none"
 
@@ -17,16 +18,29 @@ func _ready():
 	$AnimatedSprite2D.play("down_idle")
 
 func _physics_process(delta):
+	
+	if global.player_health <= 0:
+		if player_alive:
+			player_alive = false
+			global.player_health = 0
+			velocity = Vector2.ZERO
+			$AnimatedSprite2D.play("death_anim")
+			print("player dead")
+			
+		move_and_slide()
+		return
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	#health()
+	#update_health()
 	
 	
-	if health <= 0:
-		player_alive = false #this is where to add any screens (respawn or death)
-		health = 0
-		print("player has been killed")
-		self.queue_free()
+	#if global.player_health <= 0:
+		#player_alive = false #this is where to add any screens (respawn or death)
+		#global.player_health = 0
+		#print("player has been killed")
+		
 		
 
 func player_movement(_delta):
@@ -72,12 +86,14 @@ func player_movement(_delta):
 
 #animation for movement
 func play_anim(movement):
-	var dir = current_dir
+	
 	var anim = $AnimatedSprite2D
+	var dir = current_dir
 	
 	if dir == "right":
 		anim.flip_h = false
 		if movement == 1:
+
 			anim.play("side_walk")
 		elif movement == 0:
 			if attack_ip == false:
@@ -86,6 +102,7 @@ func play_anim(movement):
 	if dir == "left":
 		anim.flip_h = true
 		if movement == 1:
+
 			anim.play("side_walk")
 		elif movement == 0:
 			if attack_ip == false:
@@ -94,6 +111,7 @@ func play_anim(movement):
 	if dir == "down":
 		
 		if movement == 1:
+
 			anim.play("down_walk")
 		elif movement == 0:
 			if attack_ip == false:
@@ -102,10 +120,18 @@ func play_anim(movement):
 	if dir == "up":
 		
 		if movement == 1:
+
 			anim.play("back_walk")
 		elif movement == 0:
 			if attack_ip == false:
 				anim.play("back_idle")
+				
+	
+
+		
+	else:
+		pass
+		
 
 	
 
@@ -125,17 +151,21 @@ func _on_player_hitbox_body_exited(body):
 		
 		
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+	if player_alive and enemy_inattack_range and enemy_attack_cooldown == true:
+		global.player_health -= 1
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print(global.player_health)
+
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 func attack():
 	var dir = current_dir
+	
+	if player_alive == false:
+		return
 	
 	if Input.is_action_just_pressed("attack"):
 		global.player_current_attack = true
@@ -144,6 +174,7 @@ func attack():
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
 			$deal_attack_timer.start()
+			
 		if dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
@@ -159,3 +190,22 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	global.player_current_attack = false
 	attack_ip = false
+	
+
+#func update_health():
+	#var healthbar = $healthbar
+	#healthbar.value = health 
+	
+	#if health >= 100:
+		#healthbar.visible = false 
+	#else:
+		#healthbar.visible = true 
+
+
+#func _on_regin_timer_timeout():
+	#if health < 100:
+		#health = health + 5
+		#if health > 100:
+			#health = 100
+	#if health <= 0:
+		#health = 0
