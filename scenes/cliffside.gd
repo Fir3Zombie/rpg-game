@@ -1,5 +1,5 @@
-extends Node2D
 
+extends Node2D
 func _ready():
 	if global.player_spawn_position_set:
 		$player.position = global.player_spawn_position
@@ -9,11 +9,9 @@ func _ready():
 		$player.position = Vector2(global.player_start_posx, global.player_start_posy)
 		
 		
-
 func _process(_delta):
 	change_scenes()
 	
-
 # cliffside to world
 func _on_ciffside_exitpoint_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -25,8 +23,6 @@ func _on_ciffside_exitpoint_body_entered(body: Node2D) -> void:
 		
 		
 		global.transition_scene = true
-
-
 func _on_ciffside_exitpoint_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		if global.next_scene == "world":

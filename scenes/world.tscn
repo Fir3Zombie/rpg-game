@@ -345,7 +345,6 @@ layer_2/navigation_enabled = false
 layer_2/tile_data = PackedInt32Array(-19, 18, 5, 196596, 18, 5, -4, 18, 5, -458740, 18, 5, 262156, 18, 5, -458722, 18, 5, 851998, 18, 5, 786407, 18, 5, 917491, 18, 5, 851966, 18, 5, -458758, 655378, 7, -393232, 655378, 7, -524311, 655378, 7, -458732, 655378, 7, -65508, 655378, 7, -524289, 18, 1, -393226, 18, 1, -458774, 18, 1, 851946, 18, 1, 983033, 18, 1, 131082, 18, 1, 13, 18, 1, 131089, 18, 1, -131041, 18, 1, 917529, 18, 1, -327679, 18, 1, -65538, 18, 1, 851974, 524306, 6, 19, 524306, 6, -262152, 524306, 6, -262165, 393234, 7, 720875, 393234, 7, 720921, 393234, 7, -458727, 393234, 7, -262122, 524306, 6, -65510, 524306, 6, 458761, 18, 0, 262143, 18, 0)
 
 [node name="player" parent="." unique_id=1708611783 instance=ExtResource("16_dss4m")]
-z_index = 1
 position = Vector2(-431, -27)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=312772189]
@@ -357,10 +356,6 @@ limit_bottom = 256
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="hui" parent="player/Camera2D" unique_id=1241373163 instance=ExtResource("19_pm21f")]
-z_index = 10
-position = Vector2(94, -43)
 
 [node name="enemy2" parent="." unique_id=1036618081 instance=ExtResource("16_7t5mc")]
 position = Vector2(224, 191)
@@ -385,6 +380,8 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village_transition_point" unique_id=1711916608]
 position = Vector2(-473, -40)
 shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CanvasLayer" parent="." unique_id=980877128 instance=ExtResource("19_pm21f")]
 
 [connection signal="renamed" from="player" to="player" method="_on_renamed"]
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]

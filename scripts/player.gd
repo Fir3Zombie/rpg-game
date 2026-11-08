@@ -23,6 +23,7 @@ func _physics_process(delta):
 		if player_alive:
 			player_alive = false
 			global.player_health = 0
+			
 			velocity = Vector2.ZERO
 			$AnimatedSprite2D.play("death_anim")
 			print("player dead")
@@ -191,21 +192,3 @@ func _on_deal_attack_timer_timeout():
 	global.player_current_attack = false
 	attack_ip = false
 	
-
-#func update_health():
-	#var healthbar = $healthbar
-	#healthbar.value = health 
-	
-	#if health >= 100:
-		#healthbar.visible = false 
-	#else:
-		#healthbar.visible = true 
-
-
-#func _on_regin_timer_timeout():
-	#if health < 100:
-		#health = health + 5
-		#if health > 100:
-			#health = 100
-	#if health <= 0:
-		#health = 0

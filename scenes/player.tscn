@@ -297,6 +297,7 @@ radius = 5.0990205
 radius = 20.0
 
 [node name="player" type="CharacterBody2D" unique_id=1708611783]
+z_index = 1
 y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_dqkch")
@@ -325,12 +326,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 [node name="deal_attack_timer" type="Timer" parent="." unique_id=1866679896]
 wait_time = 0.5
 
-[node name="regen_timer" type="Timer" parent="." unique_id=783989967]
-wait_time = 10.0
-autostart = true
-
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
-[connection signal="timeout" from="regen_timer" to="." method="_on_regin_timer_timeout"]

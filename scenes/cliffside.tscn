@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://88p2eq6l0mjq" path="res://art/tilesets/water3.png" id="14_vnvym"]
 [ext_resource type="Texture2D" uid="uid://nk7ynhx5n31" path="res://art/tilesets/water4.png" id="15_35ih3"]
 [ext_resource type="PackedScene" uid="uid://djq4ommqqdtom" path="res://scenes/player.tscn" id="16_4my5p"]
+[ext_resource type="PackedScene" uid="uid://264dolxu1ini" path="res://scenes/hui.tscn" id="18_yajdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pf4m"]
 texture = ExtResource("1_60kbb")
@@ -347,10 +348,9 @@ position = Vector2(-65, 132)
 polygon = PackedVector2Array(0, 0, -9, 1, -14, 15, -32, 16, -37, 0, -63, -1, -69, -16, -94, -17, -102, -34, -127, -34, -131, -63, -144, -66, -146, -110, -160, -114, -161, -164, -143, -166, -143, -212, -127, -215, -127, -228, -112, -229, -110, -244, -81, -245, -78, -259, -18, -261, -15, -276, 47, -277, 50, -292, 211, -292, 211, -279, 217, -276, 259, -276, 262, -262, 291, -260, 291, -232, 296, -228, 307, -228, 307, -217, 312, -212, 324, -212, 324, -198, 339, -196, 339, -114, 328, -111, 323, -103, 323, -82, 312, -80, 306, -66, 281, -65, 276, -57, 274, -50, 264, -49, 258, -38, 258, -34, 217, -33, 212, -25, 211, -18, 89, -16, 83, -7, 62, 1, 62, 31, 28, 32, -1, 31, 84, 266, 550, 108, 732, -382, 394, -609, -261, -575, -527, -259, -377, 243, -79, 312, -1, 31)
 
 [node name="player" parent="." unique_id=1708611783 instance=ExtResource("16_4my5p")]
-z_index = 1
 position = Vector2(-33, 128)
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=2059366354]
+[node name="Camera2D2" type="Camera2D" parent="player" unique_id=2059366354]
 zoom = Vector2(2.5, 2.5)
 limit_left = -363
 limit_top = -274
@@ -367,6 +367,8 @@ position = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ciffside_exitpoint" unique_id=1307476198]
 position = Vector2(-33, 157.5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CanvasLayer" parent="." unique_id=980877128 instance=ExtResource("18_yajdu")]
 
 [connection signal="body_entered" from="ciffside_exitpoint" to="." method="_on_ciffside_exitpoint_body_entered"]
 [connection signal="body_exited" from="ciffside_exitpoint" to="." method="_on_ciffside_exitpoint_body_exited"]
