@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://nk7ynhx5n31" path="res://art/tilesets/water4.png" id="15_35ih3"]
 [ext_resource type="PackedScene" uid="uid://djq4ommqqdtom" path="res://scenes/player.tscn" id="16_4my5p"]
 [ext_resource type="PackedScene" uid="uid://264dolxu1ini" path="res://scenes/hui.tscn" id="18_yajdu"]
+[ext_resource type="PackedScene" uid="uid://bqqs5o6dcf0qk" path="res://scenes/ghost_enemy.tscn" id="19_4ameb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pf4m"]
 texture = ExtResource("1_60kbb")
@@ -369,6 +370,11 @@ position = Vector2(-33, 157.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="CanvasLayer" parent="." unique_id=980877128 instance=ExtResource("18_yajdu")]
+
+[node name="ghost_enemy" parent="." unique_id=1848670011 instance=ExtResource("19_4ameb")]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(78, -97)
 
 [connection signal="body_entered" from="ciffside_exitpoint" to="." method="_on_ciffside_exitpoint_body_entered"]
 [connection signal="body_exited" from="ciffside_exitpoint" to="." method="_on_ciffside_exitpoint_body_exited"]

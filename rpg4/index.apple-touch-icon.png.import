@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tha4ojypraqc"
-path="res://.godot/imported/movment(5)(1).png-5140d8179a4e4ed77936059d9a84805c.ctex"
+uid="uid://c0oh2nxj03q2x"
+path="res://.godot/imported/index.apple-touch-icon.png-8dcfb0498d8f8d2b613afc40e533062b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemy's/movment(5)(1).png"
-dest_files=["res://.godot/imported/movment(5)(1).png-5140d8179a4e4ed77936059d9a84805c.ctex"]
+source_file="res://rpg4/index.apple-touch-icon.png"
+dest_files=["res://.godot/imported/index.apple-touch-icon.png-8dcfb0498d8f8d2b613afc40e533062b.ctex"]
 
 [params]
 

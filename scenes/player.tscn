@@ -153,7 +153,7 @@ animations = [{
 "duration": 0.41,
 "texture": SubResource("AtlasTexture_4r5pv")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"back_attack",
 "speed": 5.0
 }, {
@@ -224,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a8ls1")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"down_attack",
 "speed": 5.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_31cv2")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"side_attack",
 "speed": 5.0
 }, {
@@ -299,13 +299,12 @@ radius = 20.0
 [node name="player" type="CharacterBody2D" unique_id=1708611783]
 z_index = 1
 y_sort_enabled = true
-collision_layer = 3
 script = ExtResource("1_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=288391601]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"death_anim"
+animation = &"side_attack"
 offset = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507060657]
@@ -316,6 +315,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_lakw3")
 
 [node name="player_hitbox" type="Area2D" parent="." unique_id=1126748274]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox" unique_id=600026182]
 position = Vector2(0, -9)
