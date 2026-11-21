@@ -40,4 +40,13 @@ but environmental sprites like trees, floor, cliffs, bushes, small trees, rocks,
 
 play my game at:
 
-- https://fir3zombie.itch.io/ - 
+- https://fir3zombie.itch.io/ -
+
+  to run click the rpg game box and then click play.
+
+  <img width="1263" height="447" alt="image" src="https://github.com/user-attachments/assets/2cce396b-ca00-402a-9f77-98ea9e70c3de" />
+  <img width="1174" height="651" alt="image" src="https://github.com/user-attachments/assets/5670377a-1c41-4c6f-810f-07d7f7b0a646" />
+  <img width="1111" height="560" alt="image" src="https://github.com/user-attachments/assets/3bcf4f90-e0f5-4797-bbb1-da206b6411a5" />
+
+go fullscreen because it looks better.
+
