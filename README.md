@@ -33,4 +33,8 @@ cliffside - this location consists of not much, It mainly stands as a way for me
 
 cliff_path - This leads towards the harbour which isn't made yet but it will be an important part of the story later on. 
 
+most sprites where made by me on psikel - https://www.piskelapp.com/ - 
+
+but enviromental sprites like trees, floor, cliffs, bushes, small trees, rocks, signs and tree trunks where made by another creator which i got off his free pack.
+- https://game-endeavor.itch.io/mystic-woods - 
 
