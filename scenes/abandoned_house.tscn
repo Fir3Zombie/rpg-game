@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://b85aygwqxn4i8"]
+
+[ext_resource type="Script" uid="uid://ee2rq823dtef" path="res://abandoned_house.gd" id="1_y5yu8"]
+[ext_resource type="Texture2D" uid="uid://b5rwcqypdi5jl" path="res://art/houses/New Piskel(18).png" id="2_5khpp"]
+[ext_resource type="Texture2D" uid="uid://bec3dydygg0ht" path="res://art/houses/New Piskel(19).png" id="3_rdwou"]
+[ext_resource type="Texture2D" uid="uid://cy7oyg1ie8g8x" path="res://art/houses/New Piskel(19)(1).png" id="4_3p4wc"]
+[ext_resource type="Texture2D" uid="uid://chwbo2by0tp2s" path="res://art/houses/New Piskel(19)(2).png" id="5_5d0ws"]
+[ext_resource type="Texture2D" uid="uid://cyewhs8p2i6t2" path="res://art/houses/New Piskel(19)(3).png" id="6_xr41m"]
+[ext_resource type="PackedScene" uid="uid://bqqs5o6dcf0qk" path="res://scenes/ghost_enemy.tscn" id="7_o11xt"]
+[ext_resource type="PackedScene" uid="uid://djq4ommqqdtom" path="res://scenes/player.tscn" id="8_l1ojp"]
+[ext_resource type="Script" uid="uid://bfuyphp4teio8" path="res://scenes/camera_2d.gd" id="9_5khpp"]
+[ext_resource type="PackedScene" uid="uid://264dolxu1ini" path="res://scenes/hui.tscn" id="10_rdwou"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l4g6"]
+texture = ExtResource("2_5khpp")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nx85"]
+texture = ExtResource("3_rdwou")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+8:0/0/y_sort_origin = -30
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23.436478, -30.283087, 22.909815, -29.493095, 23.963139, 26.333118, -22.11982, 26.333118)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b83q6"]
+texture = ExtResource("4_3p4wc")
+0:1/size_in_atlas = Vector2i(4, 2)
+0:1/0 = 0
+0:1/0/y_sort_origin = -11
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.43977, -11.32324, 27.913109, -11.323242, 28.17644, 8.163267, -28.176441, 7.8999367)
+0:5/size_in_atlas = Vector2i(4, 2)
+0:5/0 = 0
+0:5/0/y_sort_origin = -6
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.703102, -5.2666245, 28.43977, -5.529957, 27.649776, 3.6866379, -28.7031, 3.6866379)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dire2"]
+texture = ExtResource("5_5d0ws")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+0:4/size_in_atlas = Vector2i(4, 4)
+0:4/0 = 0
+4:4/size_in_atlas = Vector2i(4, 4)
+4:4/0 = 0
+8:4/size_in_atlas = Vector2i(4, 4)
+8:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe2lq"]
+texture = ExtResource("6_xr41m")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.4645, -7.5540676, 31.92492, -8.093643, 32.10479, 26.439232, -32.17501, 26.530273)
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.500336, -7.3285065, 30.747864, -6.372616, 31.703766, 27.720871, -32.34102, 26.764984)
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.82422, -2.3381653, 32.284645, -3.7770348, 31.92492, 26.259373, -32.104782, 27.338528)
+0:4/size_in_atlas = Vector2i(4, 4)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.20549, -1.978447, 31.92492, -3.956892, 32.4645, 26.439232, -32.4645, 26.97881)
+4:4/size_in_atlas = Vector2i(4, 4)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.924927, -0.71943665, 32.4645, -0.5395775, 32.10479, 26.439232, -32.284645, 26.619091)
+8:4/size_in_atlas = Vector2i(4, 4)
+8:4/0 = 0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.104782, -3.956892, 31.385353, -5.215904, 31.385353, 26.97881, -32.104782, 26.439232)
+
+[sub_resource type="TileSet" id="TileSet_1jug0"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0l4g6")
+sources/1 = SubResource("TileSetAtlasSource_8nx85")
+sources/2 = SubResource("TileSetAtlasSource_b83q6")
+sources/3 = SubResource("TileSetAtlasSource_dire2")
+sources/4 = SubResource("TileSetAtlasSource_pe2lq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(96, 36)
+
+[node name="abandoned_house" type="Node2D" unique_id=2126941870]
+scale = Vector2(4.697458, 4.7195473)
+script = ExtResource("1_y5yu8")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=665349438]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_1jug0")
+format = 2
+layer_0/name = "floor"
+layer_0/tile_data = PackedInt32Array(262142, 1, 0, 196610, 1, 0, 196614, 1, 0, 196618, 1, 0, 458762, 1, 0, 458758, 1, 0, 458754, 1, 0, 524286, 1, 0, -65526, 1, 0, -65530, 1, 0, -65534, 1, 0, -2, 1, 0, 393210, 1, 0, 131066, 1, 0, 131062, 1, 0, 393206, 1, 0, 655350, 1, 0, -131082, 1, 0, -131086, 1, 0, 131058, 1, 0, 393202, 1, 0, 655346, 1, 0, -131090, 1, 0, 131054, 1, 0, 393198, 1, 0, 655342, 1, 0, 65550, 1, 0, 327694, 1, 0, 65554, 1, 0, -196590, 1, 0, 327698, 1, 0, 589842, 1, 0, -196586, 1, 0, -196582, 1, 0, 65558, 1, 0, 327702, 1, 0, 589846, 1, 0, 589850, 1, 0, 327706, 1, 0, 65562, 1, 0, 655338, 1, 0, 393194, 1, 0, 131050, 1, 0, -131094, 1, 0, 589854, 1, 0, 327710, 1, 0, 65566, 1, 0, -196578, 1, 0, -327670, 1, 0, -327674, 1, 0, -327678, 1, 0, -262146, 1, 0, -524290, 1, 0, -589822, 1, 0, -589818, 1, 0, -589814, 1, 0, 720906, 1, 0, 720902, 1, 0, 720898, 1, 0, 786430, 1, 0)
+layer_1/name = "y_sort"
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 1
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(-655362, 4, 4, -720894, 262148, 4, -720890, 524291, 0, -196618, 524291, 0, -196620, 524291, 0, -196621, 524291, 0, -196622, 524291, 0, -196623, 524291, 0, -196624, 524291, 0, -196625, 524291, 0, -196626, 524291, 0, -196628, 524291, 0, -196629, 524291, 0, -196630, 524291, 0, -262126, 524291, 0, -262125, 524291, 0, -262124, 524291, 0, -262123, 524291, 0, -262122, 524291, 0, -262121, 524291, 0, -262120, 524291, 0, -262119, 524291, 0, -262118, 524291, 0, -262117, 524291, 0, -262116, 524291, 0, -262115, 524291, 0, -262114, 524291, 0, 262128, 2, 1, 196632, 2, 1, -720886, 262148, 0, -720889, 524292, 0, -3, 2, 5, -6, 2, 5, -65525, 2, 5, -65522, 2, 5)
+
+[node name="ghost_enemy" parent="." unique_id=1848670011 instance=ExtResource("7_o11xt")]
+z_as_relative = false
+position = Vector2(71, -82)
+scale = Vector2(0.30629206, 0.30629206)
+
+[node name="ghost_enemy2" parent="." unique_id=1326569326 instance=ExtResource("7_o11xt")]
+z_as_relative = false
+position = Vector2(388, -2)
+scale = Vector2(0.30629206, 0.30629206)
+
+[node name="ghost_enemy3" parent="." unique_id=1101554262 instance=ExtResource("7_o11xt")]
+z_as_relative = false
+position = Vector2(-247, -6)
+scale = Vector2(0.30629206, 0.30629206)
+
+[node name="exit" type="Area2D" parent="." unique_id=1292004818]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit" unique_id=747924037]
+position = Vector2(73, 199)
+scale = Vector2(1.0271466, 0.99291855)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="player" parent="." unique_id=1708611783 instance=ExtResource("8_l1ojp")]
+position = Vector2(72, 199)
+scale = Vector2(0.30629206, 0.30820385)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=642277685 node_paths=PackedStringArray("player", "boundary")]
+position = Vector2(76.42432, 159.97296)
+scale = Vector2(0.2151534, -0.03685557)
+zoom = Vector2(1.3, 1.3)
+limit_enabled = false
+script = ExtResource("9_5khpp")
+player = NodePath("../player")
+boundary = NodePath("../camera_boundary")
+
+[node name="camera_boundary" type="Polygon2D" parent="." unique_id=1728781889]
+position = Vector2(73.65686, 199.8073)
+scale = Vector2(0.2151534, -0.036855567)
+color = Color(0.003921569, 0.003921569, 0.003921569, 0.60784316)
+invert_enabled = true
+polygon = PackedVector2Array(-596.8462, 2197.2307, -595.85675, -447.33496, 595.4275, -464.58203, 597.4064, 2133.9912, 894.23804, 2145.4893, 892.25916, 415.02344, 2081.5642, 403.5254, 2080.575, 7727.8223, 891.26965, 7733.5713, 892.25916, 5617.919, 594.438, 5617.919, 594.438, 10769.072, -595.85675, 10774.821, -594.8673, 5612.1694, -892.68835, 5617.919, -892.68835, 7739.3203, -2081.9937, 7733.5713, -2081.9937, 409.2744, -891.699, 409.2744, -892.68835, 2145.4893)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=172080996]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=321274806]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -557.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(4.697458, 4.7195473)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=881932253]
+layout_mode = 0
+offset_left = 68.54771
+offset_top = 1.9069623
+offset_right = 557.5478
+offset_bottom = 89.90696
+scale = Vector2(0.26021856, 0.26021856)
+theme_override_font_sizes/font_size = 64
+text = "PRESS E TO EXIT"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=881718087]
+layout_mode = 0
+offset_left = 31.080643
+offset_top = 118.44355
+offset_right = 1134.0807
+offset_bottom = 188.44354
+scale = Vector2(0.17829597, 0.17829597)
+theme_override_font_sizes/font_size = 51
+text = "what the hell what is wrong with this place?"
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2121568935]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1651678636]
+polygon = PackedVector2Array(-56, 120, -120, 120, -120, 184, -376, 184, -376, -86, -120, -86, -120, -8, -56, -8, -56, -198, 200, -198, 201, -8, 264, -8, 264, -86, 520, -86, 520, 184, 264, 184, 264, 120, 200, 120, 200, 216, -56, 216, -56, 122, -81, 216, 3, 302, 178, 244, 236, 279, 482, 265, 604, 178, 604, -35, 565, -141, 450, -161, 354, -149, 282, -190, 193, -234, 75, -244, -122, -238, -287, -219, -486, -121, -514, 34, -498, 235, -373, 323, -190, 282, -83, 211, -58, 121, -58, 126, -56, 122)
+
+[node name="CanvasLayer2" parent="." unique_id=980877128 instance=ExtResource("10_rdwou")]
+
+[connection signal="area_entered" from="exit" to="." method="_on_exit_area_entered"]
+[connection signal="area_exited" from="exit" to="." method="_on_exit_area_exited"]
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_exited" from="exit" to="." method="_on_exit_body_exited"]

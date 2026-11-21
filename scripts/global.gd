@@ -7,7 +7,7 @@ var current_scene = "village"
 var next_scene = ""
 var transition_scene = false
 
-var game_first_loadin = true
+var game_first_loadin = false
 
 
 #spawn position

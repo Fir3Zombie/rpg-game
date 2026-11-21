@@ -276,6 +276,8 @@ offset_bottom = 618.0
 theme_override_font_sizes/font_size = 64
 text = "Hello timmy! "
 
+[node name="Node" type="Node" parent="nurse_speaking/Control/Label" unique_id=11693850]
+
 [connection signal="body_entered" from="exit_entered" to="." method="_on_exit_entered_body_entered"]
 [connection signal="body_exited" from="exit_entered" to="." method="_on_exit_entered_body_exited"]
 [connection signal="body_entered" from="nurse_speak" to="." method="_on_nurse_speak_body_entered"]

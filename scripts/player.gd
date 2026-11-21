@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var ghost_enemy_inattack_range = false
-var ghost_enemy_attack_cooldown = true
 var health = global.player_health
 var player_alive = true
 
@@ -35,7 +33,6 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	attack()
-	ghost_enemy_attack()
 	#health()
 	#update_health()
 	
@@ -130,21 +127,16 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("back_idle")
 				
-	
-
 		
 	else:
 		pass
 		
 
-	
-
-
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = true
-	if body.has_method("ghost_enemy"):
-		enemy_inattack_range = true
+		print("slime deteced")
+
 		
 		
 func player():
@@ -153,24 +145,25 @@ func player():
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false
-	if body.has_method("ghost_enemy"):
-		enemy_inattack_range = false
+
 		
 		
 func enemy_attack():
 	if player_alive and enemy_inattack_range and enemy_attack_cooldown == true:
+		print("YOUCH")
 		global.player_health -= 1
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(global.player_health)
-
-func ghost_enemy_attack():
-	if player_alive and ghost_enemy_inattack_range and ghost_enemy_attack_cooldown == true:
-		
-		global.player_health -= 2
-		enemy_attack_cooldown = false
-		$attack_cooldown.start()
 		print("player health = ", global.player_health)
+
+func take_damage(amount: int):
+	if player_alive:
+		global.player_health -= amount
+		global.player_health = max(global.player_health, 0)
+		print("plater health = ", global.player_health)
+		
+		
+		
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 

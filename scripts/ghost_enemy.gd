@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+var is_attacking = false
+var player_in_attack_range = false
+var can_attack = true
+
+
 var speed = 45
 var player_chase = false
 var player = null
@@ -27,17 +32,27 @@ func _physics_process(_delta: float) -> void:
 		
 	deal_with_damage()
 	update_health()
-	
+	ghost_enemy()
 	if player_chase and is_instance_valid(player):
 		var distance = global_position.distance_to(player.global_position)
 		
-		if distance > 10:
-			var direction = global_position.direction_to(player.global_position)
-			velocity = direction * speed
-			$AnimatedSprite2D.play("walk")
-		else:
+		
+		if is_attacking:
 			velocity = Vector2.ZERO
-			$AnimatedSprite2D.play("idle")
+			
+		elif player_inattack_zone and can_attack:
+			velocity = Vector2.ZERO
+			attack()
+				
+			
+		elif distance > 10:
+			if not is_attacking:
+				var direction = global_position.direction_to(player.global_position)
+				velocity = direction * speed
+				$AnimatedSprite2D.play("walk")
+		else:
+				velocity = Vector2.ZERO
+				$AnimatedSprite2D.play("idle")
 			
 			
 		move_and_slide()
@@ -46,10 +61,35 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.flip_h = true
-		
-		
-		
 
+
+func attack():
+	can_attack = false
+	is_attacking = true
+	
+	$AnimatedSprite2D.play("attack")
+	$damage_timer.start(1.5)
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "death":
+		queue_free()
+
+	elif $AnimatedSprite2D.animation == "attack":
+		is_attacking = false
+		$attack_cooldown.start()
+			
+		is_attacking = false
+		$attack_cooldown.start()
+func _on_damage_timer_timeout() -> void:
+	if player_inattack_zone and is_instance_valid(player):
+		player.take_damage(2)
+		print("Ghist attack hit!")
+func _on_attack_cooldown_timeout() -> void:
+	can_attack = true
+	
+		
+func ghost_enemy():
+	pass
 		
 
 
@@ -66,7 +106,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		player_chase = false
 		print("player left detection area")
 		
-func enemy():
+func ghostt_enemy():
 	pass
 	
 #creates a functional hitbox 
@@ -107,11 +147,3 @@ func update_health():
 		healthbar.hide()
 	else:
 		healthbar.show()
-
-
-
-
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if $AnimatedSprite2D.animation == "death":
-		self.queue_free()
