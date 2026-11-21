@@ -35,6 +35,9 @@ cliff_path - This leads towards the harbour which isn't made yet but it will be 
 
 most sprites where made by me on psikel - https://www.piskelapp.com/ - 
 
-but enviromental sprites like trees, floor, cliffs, bushes, small trees, rocks, signs and tree trunks where made by another creator which i got off his free pack.
+but environmental sprites like trees, floor, cliffs, bushes, small trees, rocks, signs and tree trunks where made by another creator which i got off his free pack.
 - https://game-endeavor.itch.io/mystic-woods - 
 
+play my game at:
+
+- https://fir3zombie.itch.io/ - 
